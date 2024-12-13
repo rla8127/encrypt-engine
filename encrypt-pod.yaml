@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: encrypt-engine-app
+  namespace: default
+spec:
+  containers:
+    - name: encrypt-engine-container
+      image: 466015366405.dkr.ecr.eu-north-1.amazonaws.com/encrypt-engine:1.0
+      ports:
+        - containerPort: 8000
+      envFrom:
+        - configMapRef:
+            name: encrypt-engine-config
